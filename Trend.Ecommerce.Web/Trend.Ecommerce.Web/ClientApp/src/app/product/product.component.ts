@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IProduct } from '../Interfaces/IProduct';
 
 @Component({
   selector: 'app-product-component',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
 })
 
 export class ProductComponent {
+
+  produts: IProduct[];
 
   constructor() {
   }

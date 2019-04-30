@@ -1,3 +1,17 @@
-<p>
-  Working !!
+<h2> Produt Catalog ! </h2>
+
+<button class="btn btn-primary">Add produc</button>
+
+<p *ngIf="!(product && product.length)">
+  No existen registros para mostrar
 </p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+
+</table>
