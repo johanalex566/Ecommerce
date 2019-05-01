@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ProductComponent } from './product/product.component';
 import { OrderEntryComponent } from './order-entry/order-entry.component';
+import { ProductService } from './services/product.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { OrderEntryComponent } from './order-entry/order-entry.component';
       { path: 'product', component: ProductComponent }
     ])
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

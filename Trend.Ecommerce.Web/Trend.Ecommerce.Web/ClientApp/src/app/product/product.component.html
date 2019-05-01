@@ -1,17 +1,27 @@
-<h2> Produt Catalog ! </h2>
+<h2> Produt</h2>
 
 <button class="btn btn-primary">Add produc</button>
 
-<p *ngIf="!(product && product.length)">
-  No existen registros para mostrar
+<p *ngIf="!(produts && produts.length)">
+Not found products
 </p>
 
-<table class="table">
+<table class="table" *ngIf="(produts && produts.length)">
   <thead>
     <tr>
       <th>Name</th>
       <th>Quantity</th>
+      <th>Date</th>
     </tr>
   </thead>
-
-</table>
+  <thead>
+    <tbody>
+      <tr *ngFor="let product of produts">
+        <td>{{product.name}}</td>
+        <td>{{product.quuantity}}</td>
+        <td>{{product.quuantity | date : 'dd-MM-yyyy'}}</td>
+        <td>Edit</td>
+        <td>Delete</td>
+      </tr>
+    </tbody>
+  </table>
