@@ -1,0 +1,94 @@
+<!--<h1>{{modoEdicion ? 'Editar' : 'Agregar'}} Product</h1>-->
+<h1>Add product</h1>
+<form class="form-horizontal" novalidate
+      (ngSubmit)="save()" [formGroup]="formGroup">
+  <fieldset>
+
+    <div class="form-group"
+         [ngClass]="{'has-error': (formGroup.get('name').touched || formGroup.get('name').dirty) && !formGroup.get('name').valid }">
+      <label class="col-md-2 control-label"
+             for="nameId">name</label>
+
+      <div class="col-md-8">
+        <input class="form-control"
+               id="nameId"
+               type="text"
+               required
+               formControlName="name" />
+        <span class="help-block" *ngIf="(formGroup.get('name').touched || formGroup.get('name').dirty) && formGroup.get('name').errors">
+          <span *ngIf="formGroup.get('name').errors.required">
+            El campo name es requerido
+          </span>
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group"
+         [ngClass]="{'has-error': (formGroup.get('ProductDate').touched || formGroup.get('ProductDate').dirty) && !formGroup.get('ProductDate').valid }">
+      <label class="col-md-2 control-label"
+             for="ProductDate">Date</label>
+
+      <div class="col-md-8">
+        <input class="form-control"
+               id="ProductDate"
+               type="date"
+               required
+               formControlName="ProductDate" />
+        <span class="help-block" *ngIf="(formGroup.get('ProductDate').touched || formGroup.get('ProductDate').dirty) && formGroup.get('ProductDate').errors">
+          <span *ngIf="formGroup.get('ProductDate').errors.required">
+            El campo Fecha es requerido
+          </span>
+        </span>
+      </div>
+    </div>
+
+    <!--<div class="form-group">
+      <a class="btn btn-primary" (click)="agregarDireccion()">Agregar Dirección</a>
+    </div>
+
+    <div formArrayName="direcciones"
+         *ngFor="let direccion of formGroup.get('direcciones').controls; let i = index;">
+      <div [formGroupName]="i">
+        <div class="form-group">
+          <label class="col-md-2 control-label" [attr.for]="'calle' + i">
+            Calle
+          </label>
+          <div class="col-md-8">
+            <input class="form-control" [attr.id]="'calle' + i" type="text" formControlName="calle" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-2 control-label" [attr.for]="'provincia' + i">
+            Provincia
+          </label>
+          <div class="col-md-8">
+            <input class="form-control" [attr.id]="'provincia' + i" type="text" formControlName="provincia" />
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-10">
+            <button type="button" class="btn btn-danger pull-right" (click)="removerDireccion(i)">Remover</button>
+          </div>
+        </div>
+      </div>
+    </div>-->
+
+
+    <div class="form-group">
+      <div class="col-md-4 col-md-offset-2">
+        <span>
+          <button class="btn btn-primary"
+                  type="submit"
+                  [disabled]="!formGroup.valid">
+            Salvar
+          </button>
+          <button class="btn"
+                  type="button"
+                  [routerLink]='["/product"]'>
+            Cancelar
+          </button>
+        </span>
+      </div>
+    </div>
+  </fieldset>
+</form>
