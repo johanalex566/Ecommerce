@@ -17,7 +17,7 @@
                formControlName="name" />
         <span class="help-block" *ngIf="(formGroup.get('name').touched || formGroup.get('name').dirty) && formGroup.get('name').errors">
           <span *ngIf="formGroup.get('name').errors.required">
-            El campo name es requerido
+            The field name is required
           </span>
         </span>
       </div>
@@ -36,7 +36,7 @@
                formControlName="ProductDate" />
         <span class="help-block" *ngIf="(formGroup.get('ProductDate').touched || formGroup.get('ProductDate').dirty) && formGroup.get('ProductDate').errors">
           <span *ngIf="formGroup.get('ProductDate').errors.required">
-            El campo Fecha es requerido
+            The field date is required
           </span>
         </span>
       </div>

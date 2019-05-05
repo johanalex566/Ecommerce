@@ -26,5 +26,17 @@ namespace Trend.Ecommerce.Web.Controllers
                 new Product() {productId=01, name ="Arroz", quuantity = 5 , DateCreated= new DateTime(2020,01,16)},
             };
         }
+
+        [HttpPost("[action]")]
+        public async Task<IActionResult> CreateProduct([FromBody] Product product)
+        { 
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            contex.Products.Add(product);
+            await contex.SaveChangesAsync();
+            return CreatedAtAction("GetProduct", new { id = product.productId }, product);
+        }
     }
 }
