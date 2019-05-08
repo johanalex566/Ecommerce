@@ -12,7 +12,8 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ProductComponent } from './product/product.component';
 import { OrderEntryComponent } from './order-entry/order-entry.component';
 import { ProductService } from './services/product.service';
-import { ProductFormComponent } from './form/product-form/product-form.component';
+import { ProductFormComponent } from './product/product-form/product-form.component';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ProductFormComponent } from './form/product-form/product-form.component
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'product', component: ProductComponent },
-      { path: 'product-add', component: ProductFormComponent }
+      { path: 'product-form', component: ProductFormComponent },
+
     ])
   ],
   providers: [ProductService],
