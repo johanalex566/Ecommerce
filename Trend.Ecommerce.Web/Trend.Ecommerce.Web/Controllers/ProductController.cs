@@ -20,11 +20,7 @@ namespace Trend.Ecommerce.Web.Controllers
         [HttpGet("[action]")]
         public IEnumerable<Product> GetProducts()
         {
-            return new List<Product>()
-            {
-                new Product() {productId=01, name ="Frijoles", quuantity = 2 , DateCreated= new DateTime(2019,06,14)},
-                new Product() {productId=01, name ="Arroz", quuantity = 5 , DateCreated= new DateTime(2020,01,16)},
-            };
+            return contex.Products;
         }
 
         [HttpPost("[action]")]

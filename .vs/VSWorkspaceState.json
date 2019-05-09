@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Trend.Ecommerce.Web"
+    "\\Trend.Ecommerce.Web",
+    "\\Trend.Ecommerce.Web\\Trend.Ecommerce.Web\\ClientApp",
+    "\\Trend.Ecommerce.Web\\Trend.Ecommerce.Web\\Controllers"
   ],
   "SelectedNode": "\\Trend.Ecommerce.Web\\Trend.Ecommerce.Web.sln",
   "PreviewInSolutionExplorer": false
