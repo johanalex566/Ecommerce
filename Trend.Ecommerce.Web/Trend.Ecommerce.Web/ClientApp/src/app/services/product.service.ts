@@ -16,7 +16,7 @@ export class ProductService {
 
   GetProduct(productId: string): Observable<IProduct> {
     let url = this.apiURL + "api/product/GetProduct" + "/" + productId;
-    return this.http.get<IProduct[]>(this.apiURL + "api/product/GetProduct" + "/" + productId);
+    return this.http.get<IProduct[]>(this.apiURL + "api/product/" + productId);
   }
 
   CreateProduct(product: IProduct): Observable<IProduct> {

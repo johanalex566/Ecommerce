@@ -9,7 +9,7 @@ using Trend.Ecommerce.Web.Models;
 
 namespace Trend.Ecommerce.Web.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/product")]
     public class ProductController : Controller
     {
         private readonly ApplicationDbContext contex;
@@ -58,7 +58,7 @@ namespace Trend.Ecommerce.Web.Controllers
 
         // GET: api/Personas/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetPersona([FromRoute] int id, bool incluirDirecciones = false)
+        public async Task<IActionResult> GetProduct([FromRoute] int id, bool incluirDirecciones = false)
         {
             if (!ModelState.IsValid)
             {

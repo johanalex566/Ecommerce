@@ -37,11 +37,11 @@ export class ProductFormComponent implements OnInit {
           this.EditionMode = true;
           this.productId = params["id"];
 
-          //this.productService.GetProduct(this.productId.toString())
-          //  .subscribe(response => {
-          //    this.LoadForm(response),
-          //      error => console.log(error);
-          //  });
+          this.productService.GetProduct(this.productId.toString())
+            .subscribe(response => {
+              this.LoadForm(response),
+                error => console.log(error);
+            });
         })
   }
 
