@@ -9,9 +9,14 @@ export class ProductService {
   private apiURL = this.baseUrl;
 
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
-  
-  GetProduct(): Observable<IProduct[]> {
+
+  GetProducts(): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(this.apiURL + "api/product/GetProducts");
+  }
+
+  GetProduct(productId: string): Observable<IProduct> {
+    let url = this.apiURL + "api/product/GetProduct" + "/" + productId;
+    return this.http.get<IProduct[]>(this.apiURL + "api/product/GetProduct" + "/" + productId);
   }
 
   CreateProduct(product: IProduct): Observable<IProduct> {

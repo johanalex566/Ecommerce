@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { IProduct } from '../../Interfaces/IProduct';
 import { ProductService } from '../../services/product.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { debug } from 'util';
 
 @Component({
   selector: 'app-product-form',
@@ -14,15 +15,41 @@ export class ProductFormComponent implements OnInit {
   //FormBuilder :Permite construir el modelo que representa los campos de un formulario.
   constructor(private fb: FormBuilder,
     private productService: ProductService,
-    private router: Router) { }
+    private router: Router,
+    private activatedRoute: ActivatedRoute) { }
 
   formGroup: FormGroup;
-
+  EditionMode: boolean = false;
+  productId: number;
 
   ngOnInit() {
     this.formGroup = this.fb.group({
       name: '',
+      quuantity: '',
       ProductDate: ''
+    });
+
+    this.activatedRoute.params
+      .subscribe(params => {
+        if (params["id"] == undefined) {
+          return;
+        } else {
+          this.EditionMode = true;
+          this.productId = params["id"];
+
+          //this.productService.GetProduct(this.productId.toString())
+          //  .subscribe(response => {
+          //    this.LoadForm(response),
+          //      error => console.log(error);
+          //  });
+        })
+  }
+
+  LoadForm(product: IProduct) {
+    this.formGroup.patchValue({
+      name: product.name,
+      quuantity: product.quuantity,
+      ProductDate: product.DateCreated
     });
   }
 
@@ -36,6 +63,6 @@ export class ProductFormComponent implements OnInit {
       })
   }
   onSaveSuccess() {
-    this.router.navigate('["/product"]');
+    this.router.navigateByUrl('/product');
   }
 }

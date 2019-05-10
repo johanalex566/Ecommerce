@@ -35,6 +35,7 @@ import { ProductFormComponent } from './product/product-form/product-form.compon
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'product', component: ProductComponent },
       { path: 'product-form', component: ProductFormComponent },
+      { path: 'product-edit/:id', component: ProductFormComponent },
 
     ])
   ],

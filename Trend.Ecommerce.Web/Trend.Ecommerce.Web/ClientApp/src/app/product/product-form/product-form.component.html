@@ -1,4 +1,4 @@
-<h1>{{modoEdicion ? 'Edit' : 'Add'}} Product</h1>
+<h1>{{EditionMode ? 'Edit' : 'Add'}} Product</h1>
 <form class="form-horizontal" novalidate
       (ngSubmit)="save()" [formGroup]="formGroup">
   <fieldset>
@@ -6,7 +6,7 @@
     <div class="form-group"
          [ngClass]="{'has-error': (formGroup.get('name').touched || formGroup.get('name').dirty) && !formGroup.get('name').valid }">
       <label class="col-md-2 control-label"
-             for="nameId">name</label>
+             for="nameId">Name</label>
 
       <div class="col-md-8">
         <input class="form-control"
@@ -17,6 +17,25 @@
         <span class="help-block" *ngIf="(formGroup.get('name').touched || formGroup.get('name').dirty) && formGroup.get('name').errors">
           <span *ngIf="formGroup.get('name').errors.required">
             The field name is required
+          </span>
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group"
+         [ngClass]="{'has-error': (formGroup.get('quuantity').touched || formGroup.get('quuantity').dirty) && !formGroup.get('quuantity').valid }">
+      <label class="col-md-2 control-label"
+             for="nameId">Quantity</label>
+
+      <div class="col-md-8">
+        <input class="form-control"
+               id="quuantityId"
+               type="text"
+               required
+               formControlName="quuantity" />
+        <span class="help-block" *ngIf="(formGroup.get('quuantity').touched || formGroup.get('quuantity').dirty) && formGroup.get('quuantity').errors">
+          <span *ngIf="formGroup.get('quuantity').errors.required">
+            The field quuantity is required
           </span>
         </span>
       </div>
@@ -42,35 +61,35 @@
     </div>
 
     <!--<div class="form-group">
-      <a class="btn btn-primary" (click)="agregarDireccion()">Agregar DirecciÃ³n</a>
-    </div>
+    <a class="btn btn-primary" (click)="agregarDireccion()">Agregar DirecciÃ³n</a>
+  </div>
 
-    <div formArrayName="direcciones"
-         *ngFor="let direccion of formGroup.get('direcciones').controls; let i = index;">
-      <div [formGroupName]="i">
-        <div class="form-group">
-          <label class="col-md-2 control-label" [attr.for]="'calle' + i">
-            Calle
-          </label>
-          <div class="col-md-8">
-            <input class="form-control" [attr.id]="'calle' + i" type="text" formControlName="calle" />
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-md-2 control-label" [attr.for]="'provincia' + i">
-            Provincia
-          </label>
-          <div class="col-md-8">
-            <input class="form-control" [attr.id]="'provincia' + i" type="text" formControlName="provincia" />
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-md-10">
-            <button type="button" class="btn btn-danger pull-right" (click)="removerDireccion(i)">Remover</button>
-          </div>
+  <div formArrayName="direcciones"
+       *ngFor="let direccion of formGroup.get('direcciones').controls; let i = index;">
+    <div [formGroupName]="i">
+      <div class="form-group">
+        <label class="col-md-2 control-label" [attr.for]="'calle' + i">
+          Calle
+        </label>
+        <div class="col-md-8">
+          <input class="form-control" [attr.id]="'calle' + i" type="text" formControlName="calle" />
         </div>
       </div>
-    </div>-->
+      <div class="form-group">
+        <label class="col-md-2 control-label" [attr.for]="'provincia' + i">
+          Provincia
+        </label>
+        <div class="col-md-8">
+          <input class="form-control" [attr.id]="'provincia' + i" type="text" formControlName="provincia" />
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-10">
+          <button type="button" class="btn btn-danger pull-right" (click)="removerDireccion(i)">Remover</button>
+        </div>
+      </div>
+    </div>
+  </div>-->
 
 
     <div class="form-group">

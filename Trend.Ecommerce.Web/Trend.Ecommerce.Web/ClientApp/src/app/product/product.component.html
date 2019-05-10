@@ -3,7 +3,7 @@
 <button [routerLink]='["/product-form"]' class="btn btn-primary">Add produc</button>
 
 <p *ngIf="!(produts && produts.length)">
-Not found products
+load products...
 </p>
 
 <table class="table" *ngIf="(produts && produts.length)">
@@ -21,7 +21,7 @@ Not found products
         <td>{{product.quuantity}}</td>
         <td>{{product.quuantity | date : 'dd-MM-yyyy'}}</td>
         <td>
-          <button class="btn btn-primary">Edit</button>
+          <button class="btn btn-primary" [routerLink]='["/product-edit/" + product.productId ]'>Edit</button>
           <button class="btn btn-danger">Delete</button>
         </td>
        

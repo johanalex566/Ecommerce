@@ -12,11 +12,11 @@ export class ProductComponent implements OnInit {
 
   produts: IProduct[];
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService) { }
 
   ngOnInit() {
-    this.productService.GetProduct().subscribe(result => {
+    this.productService.GetProducts().subscribe(result => {
       this.produts = result;
-        }, error => console.error(error));
+    }, error => console.log(error));
   }
 }
