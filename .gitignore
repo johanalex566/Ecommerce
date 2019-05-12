@@ -7,3 +7,4 @@
 *.suo
 /Trend.Ecommerce.Web/.vs/Trend.Ecommerce.Web/v15/Server/sqlite3
 /.vs/slnx.sqlite-journal
+/.vs/slnx.sqlite
